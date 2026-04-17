@@ -1,0 +1,318 @@
+<canvas id="bg-canvas" width="1234" height="432"></canvas>
+<div id="loader" class="out">
+  <div class="ld-outer">
+    <div class="ld-ring"></div><div class="ld-ring2"></div>
+    <div class="ld-ic"><svg width="18" height="18" viewBox="0 0 20 20" fill="var(--gold)" opacity=".75"><polygon points="10,1 12.2,7.2 18.8,7.2 13.5,11.3 15.7,17.5 10,13.4 4.3,17.5 6.5,11.3 1.2,7.2 7.8,7.2"></polygon></svg></div>
+  </div>
+  <div style="font-family:'Amiri',serif;font-size:1.25rem;color:var(--gold);opacity:0;animation:up .7s ease .2s forwards">بِسْمِ اللّهِ</div>
+  <div class="ld-dots"><div class="ld-d"></div><div class="ld-d"></div><div class="ld-d"></div></div>
+</div>
+<div id="lb">
+  <span id="lb-x" onclick="closeLB()">✕</span>
+  <div class="lbw" id="lbw">
+    <button class="lbn p" onclick="lbNav(-1)">‹</button>
+    <img id="lb-img" src="" alt="">
+    <button class="lbn n" onclick="lbNav(1)">›</button>
+  </div>
+  <div class="lbb"><div class="lbc" id="lb-counter"></div><div class="lbds" id="lb-dots"></div></div>
+</div>
+<div id="setup">
+  <div class="sb">
+    <div style="text-align:center;margin-bottom:1.4rem">
+      <svg width="26" height="26" viewBox="0 0 20 20" fill="var(--gold)" style="margin-bottom:.35rem"><polygon points="10,1 12.2,7.2 18.8,7.2 13.5,11.3 15.7,17.5 10,13.4 4.3,17.5 6.5,11.3 1.2,7.2 7.8,7.2"></polygon></svg>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:1.45rem;color:var(--gold3)">Admin Setup</h2>
+      <p style="font-size:.7rem;color:rgba(255,255,255,.3);margin-top:.2rem">One-time only — viewers never see this</p>
+    </div>
+    <div id="sal" class="al"></div>
+    <div class="fg"><label class="fl">GitHub Username</label><input class="fi" id="sgu" placeholder="e.g. Aslam7714" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></div>
+    <div class="fg"><label class="fl">GitHub Repo Name</label><input class="fi" id="sgr" value="biodata" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></div>
+    <div class="fg"><label class="fl">GitHub Personal Access Token</label><input class="fi" id="sgt" placeholder="ghp_xxxxxxxxxxxx" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"><p style="font-size:.63rem;color:rgba(255,255,255,.2);margin-top:3px">github.com → Settings → Developer settings → Personal access tokens → Tokens (classic) → Generate → tick <strong style="color:rgba(255,255,255,.36)">repo</strong> → copy</p></div>
+    <div class="fg"><label class="fl">JSONBin.io API Key</label><input class="fi" id="sjb" placeholder="$2b$10$..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"><p style="font-size:.63rem;color:rgba(255,255,255,.2);margin-top:3px">jsonbin.io → Sign Up → API Keys → X-Master-Key</p></div>
+    <div class="fg"><label class="fl">ImgBB API Key</label><input class="fi" id="sib" placeholder="abc123..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"><p style="font-size:.63rem;color:rgba(255,255,255,.2);margin-top:3px">imgbb.com → Account → API</p></div>
+    <div class="fg"><label class="fl">Admin Password</label><input class="fi" id="sap" type="password" placeholder="Something memorable"><p style="font-size:.63rem;color:rgba(255,255,255,.2);margin-top:3px">You will use <code style="color:var(--gold)">?edit=PASSWORD</code> in the URL</p></div>
+    <button class="btn btn-gold" onclick="doSetup()" style="margin-top:.35rem">Complete Setup</button>
+    <p style="font-size:.6rem;color:rgba(255,255,255,.15);text-align:center;line-height:1.6;margin-top:.55rem">Only a harmless bin ID is written to GitHub — no API keys.</p>
+  </div>
+</div>
+<div id="app" class="show">
+  <div id="ebar" style="display: flex;" class="ebar">
+    <span><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:3px"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>Admin <span class="epill">PRIVATE</span></span>
+    <span id="eb-u" style="opacity:.38;font-size:.62rem;max-width:56%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">aslam7714.github.io/biodata/</span>
+  </div>
+  <section class="hero" id="hero">
+    <div class="hb"><div class="hbl t"></div><div class="hbl b"></div><div class="hbc l"></div><div class="hbc r"></div></div>
+    <svg class="corn tl" width="75" height="75" viewBox="0 0 88 88"><g stroke="#C9A84C" fill="none" stroke-width=".75"><polygon points="0,0 44,0 44,6 6,6 6,44 0,44"></polygon><polygon points="0,0 28,0 28,11 11,11 11,28 0,28"></polygon><line x1="0" y1="0" x2="26" y2="26"></line><circle cx="19" cy="19" r="5.5"></circle><circle cx="19" cy="19" r="2"></circle></g></svg>
+    <svg class="corn tr" width="75" height="75" viewBox="0 0 88 88"><g stroke="#C9A84C" fill="none" stroke-width=".75"><polygon points="0,0 44,0 44,6 6,6 6,44 0,44"></polygon><polygon points="0,0 28,0 28,11 11,11 11,28 0,28"></polygon><line x1="0" y1="0" x2="26" y2="26"></line><circle cx="19" cy="19" r="5.5"></circle><circle cx="19" cy="19" r="2"></circle></g></svg>
+    <svg class="corn bl" width="75" height="75" viewBox="0 0 88 88"><g stroke="#C9A84C" fill="none" stroke-width=".75"><polygon points="0,0 44,0 44,6 6,6 6,44 0,44"></polygon><polygon points="0,0 28,0 28,11 11,11 11,28 0,28"></polygon><line x1="0" y1="0" x2="26" y2="26"></line><circle cx="19" cy="19" r="5.5"></circle></g></svg>
+    <svg class="corn br" width="75" height="75" viewBox="0 0 88 88"><g stroke="#C9A84C" fill="none" stroke-width=".75"><polygon points="0,0 44,0 44,6 6,6 6,44 0,44"></polygon><polygon points="0,0 28,0 28,11 11,11 11,28 0,28"></polygon><line x1="0" y1="0" x2="26" y2="26"></line><circle cx="19" cy="19" r="5.5"></circle></g></svg>
+    <div class="hvl"></div>
+    <div class="bism">بِسْمِ اللّهِ الرّحْمٰنِ الرّحِيمِ</div>
+    <div class="bism-en">In the name of Allah, the Most Gracious, the Most Merciful</div>
+    <div class="star-r"><span></span><svg viewBox="0 0 20 20"><polygon points="10,2 12,8 18,8 13,12 15,18 10,14 5,18 7,12 2,8 8,8"></polygon></svg><span></span></div>
+    <div class="hlabel">Bio Data</div>
+    <div class="hname" id="hname"><span class="ch" style="animation-delay: 0.05s;">J</span><span class="ch" style="animation-delay: 0.098s;">a</span><span class="ch" style="animation-delay: 0.146s;">v</span><span class="ch" style="animation-delay: 0.194s;">i</span><span class="ch" style="animation-delay: 0.242s;">d</span><span class="sp"></span><span class="ch" style="animation-delay: 0.312s;">A</span><span class="ch" style="animation-delay: 0.36s;">s</span><span class="ch" style="animation-delay: 0.408s;">l</span><span class="ch" style="animation-delay: 0.456s;">a</span><span class="ch" style="animation-delay: 0.504s;">m</span><span class="sp"></span><span class="ch" style="animation-delay: 0.574s;">J</span></div>
+    <div class="hsub">Islamic Marriage Profile</div>
+    <div class="scue" onclick="document.getElementById('mainnav').scrollIntoView({behavior:'smooth'})">
+      <span class="scue-t">View Profile</span>
+      <div><div class="sa"></div><div class="sa2"></div></div>
+    </div>
+  </section>
+  <nav class="nav" id="mainnav">
+    <div class="ntab" id="tab0" onclick="go(0)"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>Biodata</div>
+    <div class="ntab" id="tab1" onclick="go(1)"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>Photos</div>
+    <div class="ntab" id="tab2" style="display: flex;" onclick="go(2)"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>Edit</div>
+    <div class="ntab active" id="tab3" style="display: flex;" onclick="go(3)"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>Dash</div>
+  </nav>
+  <div class="pw" id="pw"><div class="pi" id="pi" style="transform: translateX(-300vw);">
+    <div class="page" id="p0"><div class="pg">
+      <div class="reveal in"><div class="verse"><div class="var">وَمِنْ آيَاتِهِ أَنْ خَلَ؂قَ لَكُم مِنْ أَنفُسِكُم أَزْوَاجًا</div><div class="ven">"And of His signs is that He created for you from yourselves mates that you may find tranquility in them; and He placed between you affection and mercy."</div><div class="vrf">— Surah Ar-Rum 30:21</div></div></div>
+      <div class="reveal in" style="transition-delay:.06s"><div class="card"><div class="chd"><div class="cic"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div><div class="ct">Personal</div></div><div id="bp"><div class="brow"><span class="blbl">Full Name</span><span class="bval">Javid Aslam J</span></div><div class="brow"><span class="blbl">Age</span><span class="bval">26</span></div><div class="brow"><span class="blbl">Date of Birth</span><span class="bval">2000-02-19</span></div><div class="brow"><span class="blbl">Birth Place</span><span class="bval">Mayiladuthurai</span></div><div class="brow"><span class="blbl">Current City</span><span class="bval">Dubai, UAE</span></div><div class="brow"><span class="blbl">Marital Status</span><span class="bval">Single</span></div><div class="brow"><span class="blbl">Height</span><span class="bval">5'2"</span></div><div class="brow"><span class="blbl">Languages</span><span class="bval">Tamil, English</span></div></div></div></div>
+      <div class="reveal" style="transition-delay:.1s"><div class="card"><div class="chd"><div class="cic"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></div><div class="ct">Family</div></div><div id="bf"><div class="brow"><span class="blbl">Father</span><span class="bval">Jahir Hussain A — Retired- Dubai Return</span></div><div class="brow"><span class="blbl">Mother</span><span class="bval">Mamaji Kani — Homemaker</span></div><div class="brow"><span class="blbl">Sibling 1</span><span class="bval">Brother (22 yrs)</span></div><div class="brow"><span class="blbl">Sibling 2</span><span class="bval">Sister (13 yrs)</span></div></div></div></div>
+      <div class="reveal" style="transition-delay:.14s"><div class="card"><div class="chd"><div class="cic"><svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 3 3 6 3s6-1 6-3v-5"></path></svg></div><div class="ct">Education &amp; Career</div></div><div id="be"><div class="brow"><span class="blbl">Qualification</span><span class="bval">Bachelor's</span></div><div class="brow"><span class="blbl">Field</span><span class="bval">Computer Science Engineering</span></div><div class="brow"><span class="blbl">Occupation</span><span class="bval">Business Development Executive</span></div></div></div></div>
+      <div class="reveal" style="transition-delay:.18s"><div class="card"><div class="chd"><div class="cic"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.69 19a19.5 19.5 0 0 1-6-6 2 2 0 0 1 .12-1.08l1.3-2.22A2 2 0 0 0 9.07 7H6a2 2 0 0 0-2 1.72A12 12 0 0 0 4 10a16 16 0 0 0 10 10 2 2 0 0 0 1.72-2z"></path></svg></div><div class="ct">Contact</div></div><div id="bc"><div class="brow"><span class="blbl">Contact</span><span class="bval">Jahir Hussain A (Father)</span></div><div class="brow"><span class="blbl">WhatsApp</span><span class="bval">+91 9043698124</span></div></div></div></div>
+      <div class="orn">✦ &nbsp; ✦ &nbsp; ✦</div>
+      <p style="text-align:center;font-size:.64rem;color:rgba(255,255,255,.14);padding-bottom:.5rem;letter-spacing:1px">May Allah bless this union with love, peace and barakah</p>
+    </div></div>
+    <div class="page" id="p1"><div class="pg">
+      <div class="reveal in"><div class="card"><div class="chd"><div class="cic"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg></div><div class="ct">Photos</div></div><div class="sh">tap to browse</div><div class="pgrid" id="pgallery"><div class="pitem" onclick="openLB(0)"><img src="https://i.ibb.co/zWryNh5f/20260320-172000.jpg" loading="lazy" alt="Photo 1"></div><div class="pitem" onclick="openLB(1)"><img src="https://i.ibb.co/8Dg5y5RZ/20251120-144110.jpg" loading="lazy" alt="Photo 2"></div><div class="pitem" onclick="openLB(2)"><img src="https://i.ibb.co/LhqG7TDK/20260320-171314.jpg" loading="lazy" alt="Photo 3"></div><div class="pitem" onclick="openLB(3)"><img src="https://i.ibb.co/Xx9GzXX7/20230224-174710.jpg" loading="lazy" alt="Photo 4"></div><div class="pitem" onclick="openLB(4)"><img src="https://i.ibb.co/BH00rk7v/IMG-20240411-WA0117.jpg" loading="lazy" alt="Photo 5"></div><div class="pitem" onclick="openLB(5)"><img src="https://i.ibb.co/VcwDnPyT/IMG-20240909-WA0070.jpg" loading="lazy" alt="Photo 6"></div></div></div></div>
+    </div></div>
+    <div class="page" id="p2"><div class="pg">
+      <div id="eal" class="al"></div>
+      <div class="card reveal in"><div class="chd"><div class="cic"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></div><div class="ct">Share Link</div></div><p style="font-size:.7rem;color:rgba(255,255,255,.3);margin-bottom:.32rem">Send this — viewers cannot edit.</p><div class="lbox"><code id="slink">https://aslam7714.github.io/biodata/</code><button class="lcopy" onclick="cpLink('slink')">Copy</button></div></div>
+      <div class="card reveal in" style="transition-delay:.04s">
+        <div class="chd"><div class="cic"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div><div class="ct">Personal</div></div>
+        <div class="frow"><div class="fg"><label class="fl">Full Name</label><input class="fi" id="fn" placeholder="Your full name"></div><div class="fg"><label class="fl">Age</label><input class="fi" id="fa" type="number" placeholder="24" inputmode="numeric"></div></div>
+        <div class="frow"><div class="fg"><label class="fl">Date of Birth</label><input class="fi" id="fdob" type="date"></div><div class="fg"><label class="fl">Birth Place</label><input class="fi" id="fbp" placeholder="e.g. Karachi, Pakistan"></div></div>
+        <div class="frow"><div class="fg"><label class="fl">Current City</label><input class="fi" id="floc" placeholder="e.g. Dubai, UAE"></div><div class="fg"><label class="fl">Marital Status</label><select class="fs" id="fms"><option value="">Select...</option><option>Single</option><option>Never Married</option><option>Divorced</option><option>Widowed</option></select></div></div>
+        <div class="fg"><label class="fl">Height</label><input class="fi" id="fht" placeholder="e.g. 5'4&quot; / 163cm"></div>
+        <div class="fg"><label class="fl">Languages</label><input class="fi" id="flg" placeholder="Arabic, English, Urdu..."></div>
+        <div class="fg"><label class="fl">About Me</label><textarea class="ft" id="fab" placeholder="A heartfelt description of your personality and values..."></textarea></div>
+      </div>
+      <div class="card reveal" style="transition-delay:.07s">
+        <div class="chd"><div class="cic"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></div><div class="ct">Family</div></div>
+        <div class="fg"><label class="fl">Father's Name</label><input class="fi" id="ffan" placeholder="Father's full name"></div>
+        <div class="fg"><label class="fl">Father's Occupation</label><input class="fi" id="ffao" placeholder="e.g. Engineer, Businessman"></div>
+        <div class="fg"><label class="fl">Mother's Name</label><input class="fi" id="fmon" placeholder="Mother's full name"></div>
+        <div class="fg"><label class="fl">Mother's Occupation</label><input class="fi" id="fmoo" placeholder="e.g. Homemaker, Teacher"></div>
+        <div class="fg">
+          <label class="fl">Number of Siblings</label>
+          <div style="display:flex;align-items:center;gap:8px"><input class="fi" id="fsibcount" type="number" min="0" max="10" placeholder="0" inputmode="numeric" style="width:78px;flex-shrink:0" oninput="buildSibs()"><span style="font-size:.75rem;color:rgba(255,255,255,.28)">siblings</span></div>
+        </div>
+        <div id="sib-fields"><div class="sib-item"><div class="sib-lbl">Sibling 1</div><div class="frow"><div class="fg"><label class="fl">Relation</label><select class="fs sr0"><option value="">Select...</option><option>Brother</option><option>Sister</option></select></div><div class="fg"><label class="fl">Age</label><input class="fi sa0" type="number" min="1" max="80" placeholder="Age" inputmode="numeric" value=""></div></div></div><div class="sib-item"><div class="sib-lbl">Sibling 2</div><div class="frow"><div class="fg"><label class="fl">Relation</label><select class="fs sr1"><option value="">Select...</option><option>Brother</option><option>Sister</option></select></div><div class="fg"><label class="fl">Age</label><input class="fi sa1" type="number" min="1" max="80" placeholder="Age" inputmode="numeric" value=""></div></div></div></div>
+      </div>
+      <div class="card reveal" style="transition-delay:.1s">
+        <div class="chd"><div class="cic"><svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 3 3 6 3s6-1 6-3v-5"></path></svg></div><div class="ct">Education &amp; Career</div></div>
+        <div class="frow"><div class="fg"><label class="fl">Qualification</label><select class="fs" id="fed"><option value="">Select...</option><option>High School</option><option>Diploma</option><option>Bachelor's</option><option>Master's</option><option>PhD</option><option>Islamic Studies</option></select></div><div class="fg"><label class="fl">Field of Study</label><input class="fi" id="ffd2" placeholder="Medicine, Engineering..."></div></div>
+        <div class="fg"><label class="fl">Occupation</label><input class="fi" id="fjb" placeholder="Doctor, Teacher, Engineer..."></div>
+      </div>
+      <div class="card reveal" style="transition-delay:.13s">
+        <div class="chd"><div class="cic"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.69 19a19.5 19.5 0 0 1-6-6 2 2 0 0 1 .12-1.08l1.3-2.22A2 2 0 0 0 9.07 7H6a2 2 0 0 0-2 1.72A12 12 0 0 0 4 10a16 16 0 0 0 10 10 2 2 0 0 0 1.72-2z"></path></svg></div><div class="ct">Contact</div></div>
+        <p style="font-size:.7rem;color:rgba(255,255,255,.26);margin-bottom:.78rem">Use a wali / family member's contact for Islamic etiquette.</p>
+        <div class="frow"><div class="fg"><label class="fl">Contact Name</label><input class="fi" id="fcn" placeholder="e.g. Brother Ahmad"></div><div class="fg"><label class="fl">Relationship</label><input class="fi" id="fcr" placeholder="Father, Brother..."></div></div>
+        <div class="frow"><div class="fg"><label class="fl">WhatsApp / Phone</label><input class="fi" id="fph" type="tel" placeholder="+971..." inputmode="tel"></div><div class="fg"><label class="fl">Email (optional)</label><input class="fi" id="fem" type="email" placeholder="contact@email.com" inputmode="email"></div></div>
+      </div>
+      <button class="btn btn-gold" onclick="saveBio()">Save Biodata</button>
+      <div class="card reveal" style="transition-delay:.16s">
+        <div class="chd"><div class="cic"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg></div><div class="ct">Manage Photos</div></div>
+        <p style="font-size:.7rem;color:rgba(255,255,255,.26);margin-bottom:.75rem">Uploaded to ImgBB (free, permanent). Max 10 photos.</p>
+        <div id="pal" class="al"></div>
+        <div class="upzone" onclick="document.getElementById('pfi').click()"><p><strong>Tap to select a photo</strong></p><p style="margin-top:3px">JPG or PNG · up to 8MB</p></div>
+        <input type="file" id="pfi" accept="image/*" style="display:none" onchange="uploadPhoto(this)">
+        <div id="uprog" style="display:none;text-align:center;padding:.7rem;color:rgba(255,255,255,.3);font-size:.78rem">Uploading...</div>
+        <div id="pmanage"><div class="pm-item"><img src="https://i.ibb.co/Gf0KFvJP/20260320-172000.jpg" alt=""><div class="info">20260320_172000.jpg</div><button class="btn btn-danger btn-sm" onclick="delPhoto(0)">Remove</button></div><div class="pm-item"><img src="https://i.ibb.co/Fb4wQwfT/20251120-144110.jpg" alt=""><div class="info">20251120_144110.jpg</div><button class="btn btn-danger btn-sm" onclick="delPhoto(1)">Remove</button></div><div class="pm-item"><img src="https://i.ibb.co/WpdTJrNC/20260320-171314.jpg" alt=""><div class="info">20260320_171314.jpg</div><button class="btn btn-danger btn-sm" onclick="delPhoto(2)">Remove</button></div><div class="pm-item"><img src="https://i.ibb.co/602q4YYH/20230224-174710.jpg" alt=""><div class="info">20230224_174710.jpg</div><button class="btn btn-danger btn-sm" onclick="delPhoto(3)">Remove</button></div><div class="pm-item"><img src="https://i.ibb.co/qLTTW64h/IMG-20240411-WA0117.jpg" alt=""><div class="info">IMG-20240411-WA0117.jpg</div><button class="btn btn-danger btn-sm" onclick="delPhoto(4)">Remove</button></div><div class="pm-item"><img src="https://i.ibb.co/0RsZ4dNr/IMG-20240909-WA0070.jpg" alt=""><div class="info">IMG-20240909-WA0070.jpg</div><button class="btn btn-danger btn-sm" onclick="delPhoto(5)">Remove</button></div></div>
+      </div>
+    </div></div>
+    <div class="page" id="p3"><div class="pg">
+      <div class="sgrid reveal in">
+        <div class="sc"><div class="sn" id="st">8</div><div class="sl">Total Views</div></div>
+        <div class="sc"><div class="sn" id="sd">8</div><div class="sl">Today</div></div>
+        <div class="sc"><div class="sn" id="sw">8</div><div class="sl">This Week</div></div>
+        <div class="sc"><div class="sn" id="sc2">2</div><div class="sl">Countries</div></div>
+      </div>
+      <div class="sgrid reveal in" style="transition-delay:.05s">
+        <div class="sc"><div class="sn" id="sdev">3</div><div class="sl">Unique Devices</div></div>
+        <div class="sc"><div class="sn" id="srv">7</div><div class="sl">Return Visits</div></div>
+      </div>
+      <div class="card reveal in" style="transition-delay:.09s"><div class="chd"><div class="cic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></div><div class="ct">Visitor Log</div><button class="btn btn-ghost btn-sm" style="margin-left:auto" onclick="loadDash()">↻</button></div><div id="vlog"></div></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.85rem">
+        <div class="card reveal in" style="transition-delay:.13s"><div class="chd"><div class="cic"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div><div class="ct" style="font-size:.88rem">Countries</div></div><div id="vcountries"></div></div>
+        <div class="card reveal in" style="transition-delay:.16s"><div class="chd"><div class="cic"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg></div><div class="ct" style="font-size:.88rem">Devices</div></div><div id="vdevices"></div></div>
+      </div>
+      <div class="card reveal in" style="transition-delay:.19s;margin-top:.85rem"><div class="chd"><div class="cic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"></path></svg></div><div class="ct">Settings</div></div><p style="font-size:.7rem;color:rgba(255,255,255,.26);margin-bottom:.32rem">Admin link (keep private):</p><div class="lbox"><code id="alink">https://aslam7714.github.io/biodata/?edit=Aslam@12345</code><button class="lcopy" onclick="cpLink('alink')">Copy</button></div><button class="btn btn-danger btn-sm" onclick="clearLogs()">Clear Visitor Logs</button></div>
+    </div></div>
+  </div></div>
+</div>
+<script>
+(function(){
+  var cv=document.getElementById('bg-canvas'),ctx=cv.getContext('2d');
+  var W,H,stars=[],parts=[];
+  function resize(){W=cv.width=window.innerWidth;H=cv.height=window.innerHeight;}
+  resize();window.addEventListener('resize',resize,{passive:true});
+  var mob=W<640,NS=mob?55:110,NP=mob?5:11;
+  for(var i=0;i<NS;i++)stars.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*.9+.18,a:Math.random()*.48+.1,tw:Math.random()*2+1,tp:Math.random()*6.28});
+  var sh=['s6','di','sq'];
+  for(var i=0;i<NP;i++)parts.push({x:Math.random()*W,y:Math.random()*H,sz:Math.random()*11+4,sh:sh[i%3],vx:(Math.random()-.5)*.055,vy:(Math.random()-.5)*.055,va:(Math.random()-.5)*.0013,an:Math.random()*6.28,al:Math.random()*.055+.012});
+  var tk=0;
+  function draw(){
+    tk++;ctx.clearRect(0,0,W,H);
+    var gr=ctx.createLinearGradient(0,0,W,H);gr.addColorStop(0,'#0B1E12');gr.addColorStop(1,'#060F0A');
+    ctx.fillStyle=gr;ctx.fillRect(0,0,W,H);
+    var gl=ctx.createRadialGradient(W*.5,H*.26,0,W*.5,H*.26,W*.52);
+    gl.addColorStop(0,'rgba(45,90,61,.07)');gl.addColorStop(1,'transparent');
+    ctx.fillStyle=gl;ctx.fillRect(0,0,W,H);
+    for(var i=0;i<stars.length;i++){var s=stars[i],tw=.42+.58*Math.sin(tk*.017*s.tw+s.tp);ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,6.28);ctx.fillStyle='rgba(245,230,184,'+(s.a*tw*.42)+')';ctx.fill();}
+    for(var i=0;i<parts.length;i++){
+      var p=parts[i];p.x+=p.vx;p.y+=p.vy;p.an+=p.va;
+      if(p.x<-25)p.x=W+25;if(p.x>W+25)p.x=-25;if(p.y<-25)p.y=H+25;if(p.y>H+25)p.y=-25;
+      ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.an);ctx.strokeStyle='rgba(201,168,76,'+p.al+')';ctx.lineWidth=.6;ctx.beginPath();var z=p.sz;
+      if(p.sh==='s6'){for(var j=0;j<12;j++){var a=j*Math.PI/6,ri=j%2?z/2:z;j===0?ctx.moveTo(ri*Math.cos(a),ri*Math.sin(a)):ctx.lineTo(ri*Math.cos(a),ri*Math.sin(a));}ctx.closePath();}
+      else if(p.sh==='di'){ctx.moveTo(0,-z);ctx.lineTo(z*.55,0);ctx.lineTo(0,z);ctx.lineTo(-z*.55,0);ctx.closePath();}
+      else{ctx.rect(-z/2,-z/2,z,z);}
+      ctx.stroke();ctx.restore();
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+function initReveal(){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.05});document.querySelectorAll('.reveal').forEach(function(el){el.classList.remove('in');io.observe(el);});}
+var nameSet=false;
+function animName(text){
+  var el=document.getElementById('hname');el.innerHTML='';
+  if(!text||!text.trim()){return;}
+  var delay=nameSet?0.05:1.4;nameSet=true;
+  Array.from(text).forEach(function(c){if(c===' '){var sp=document.createElement('span');sp.className='sp';el.appendChild(sp);delay+=.022;return;}var sp=document.createElement('span');sp.className='ch';sp.textContent=c;sp.style.animationDelay=delay+'s';el.appendChild(sp);delay+=.048;});
+}
+function countUp(el,n){var t=performance.now();(function f(now){var p=Math.min((now-t)/750,1);el.textContent=Math.round(p*p*n);if(p<1)requestAnimationFrame(f);else el.textContent=n;})(t);}
+var curPage=0,pageCount=2,isAdmin=false;
+var pi=document.getElementById('pi');
+var sx=0,sy2=0,dx=0,movd=false,horiz=false;
+function go(idx,ns){
+  curPage=idx;pi.style.transform='translateX(-'+(idx*100)+'vw)';
+  document.querySelectorAll('.ntab').forEach(function(t,i){t.classList.toggle('active',i===idx);});
+  if(!ns){var nav=document.getElementById('mainnav');var r=nav.getBoundingClientRect();if(r.top<0||r.top>window.innerHeight)nav.scrollIntoView({behavior:'smooth',block:'nearest'});}
+  setTimeout(initReveal,55);if(idx===3)loadDash();
+}
+var pw=document.getElementById('pw');
+pw.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;sy2=e.touches[0].clientY;movd=false;horiz=false;dx=0;},{passive:true});
+pw.addEventListener('touchmove',function(e){dx=e.touches[0].clientX-sx;var dy=e.touches[0].clientY-sy2;if(!movd){movd=true;horiz=Math.abs(dx)>Math.abs(dy);}},{passive:true});
+pw.addEventListener('touchend',function(){if(horiz&&Math.abs(dx)>42){if(dx<0&&curPage<pageCount-1)go(curPage+1,true);else if(dx>0&&curPage>0)go(curPage-1,true);}},{passive:true});
+var lbP=[],lbI=0,lbsx=0;
+function openLB(i){lbP=window._photos||[];lbI=i;showLB();document.getElementById('lb').classList.add('open');var w=document.getElementById('lbw');w.ontouchstart=function(e){lbsx=e.touches[0].clientX;};w.ontouchend=function(e){var d=e.changedTouches[0].clientX-lbsx;if(Math.abs(d)>32)lbNav(d<0?1:-1);};}
+function showLB(){if(!lbP.length)return;var img=document.getElementById('lb-img');img.style.opacity='0';img.style.transform='scale(.96)';img.src=lbP[lbI].url;img.onload=function(){img.style.opacity='1';img.style.transform='scale(1)';};document.getElementById('lb-counter').textContent=(lbI+1)+' / '+lbP.length;var dots=document.getElementById('lb-dots');if(lbP.length>1){dots.innerHTML=lbP.map(function(_,i){return '<button class="lbd'+(i===lbI?' a':'')+'" onclick="lbGoTo('+i+')"></button>';}).join('');}else{dots.innerHTML='';}document.querySelector('.lbn.p').style.opacity=lbP.length>1?'1':'0';document.querySelector('.lbn.n').style.opacity=lbP.length>1?'1':'0';}
+function lbNav(d){lbI=(lbI+d+lbP.length)%lbP.length;showLB();}
+function lbGoTo(i){lbI=i;showLB();}
+function closeLB(){document.getElementById('lb').classList.remove('open');}
+function buildSibs(){
+  var count=parseInt(document.getElementById('fsibcount').value)||0;
+  var cont=document.getElementById('sib-fields');
+  var existing=[];cont.querySelectorAll('.sib-item').forEach(function(el,i){var r=el.querySelector('.sr'+i),a=el.querySelector('.sa'+i);existing[i]={rel:r?r.value:'',age:a?a.value:''};});
+  cont.innerHTML='';if(count<=0)return;
+  for(var i=0;i<count;i++){var prev=existing[i]||{rel:'',age:''};var d=document.createElement('div');d.className='sib-item';d.innerHTML='<div class="sib-lbl">Sibling '+(i+1)+'</div><div class="frow"><div class="fg"><label class="fl">Relation</label><select class="fs sr'+i+'"><option value="">Select...</option><option'+(prev.rel==='Brother'?' selected':'')+'>Brother</option><option'+(prev.rel==='Sister'?' selected':'')+'>Sister</option></select></div><div class="fg"><label class="fl">Age</label><input class="fi sa'+i+'" type="number" min="1" max="80" placeholder="Age" inputmode="numeric" value="'+prev.age+'"></div></div>';cont.appendChild(d);}
+}
+function getSibs(){var count=parseInt(document.getElementById('fsibcount').value)||0,sibs=[];for(var i=0;i<count;i++){var r=document.querySelector('.sr'+i),a=document.querySelector('.sa'+i);sibs.push({rel:r?r.value:'',age:a?a.value:''});}return sibs;}
+function setSibs(sibs){if(!sibs||!sibs.length){document.getElementById('fsibcount').value='';return;}document.getElementById('fsibcount').value=sibs.length;buildSibs();sibs.forEach(function(s,i){var r=document.querySelector('.sr'+i),a=document.querySelector('.sa'+i);if(r)r.value=s.rel||'';if(a)a.value=s.age||'';});}
+function getDeviceId(){var d=localStorage.getItem('_did');if(d)return d;var fp=[navigator.userAgent,navigator.language,screen.width+'x'+screen.height,screen.colorDepth,new Date().getTimezoneOffset(),navigator.hardwareConcurrency||''].join('|');var h=0;for(var i=0;i<fp.length;i++){h=((h<<5)-h)+fp.charCodeAt(i);h|=0;}var id='d'+Math.abs(h).toString(36);localStorage.setItem('_did',id);return id;}
+function getVC(){var c=parseInt(localStorage.getItem('_vc')||'0');localStorage.setItem('_vc',c+1);return c+1;}
+function getMID(){var m=document.documentElement.innerHTML.match(/<!--MASTER_BIN_ID:([\w]+)-->/);return m?m[1]:'';}
+function getLCFG(){try{return JSON.parse(localStorage.getItem('ibcfg')||'{}');}catch(e){return {};}}
+function saveLCFG(o){var c=getLCFG();localStorage.setItem('ibcfg',JSON.stringify(Object.assign({},c,o)));}
+function getEditKey(){var s=location.search||(location.href.indexOf('?')>-1?'?'+location.href.split('?')[1]:'');return new URLSearchParams(s).get('edit')||'';}
+function requestLocationPermission(){if(window._geoRequested)return;var geoCache=localStorage.getItem('_geocache');if(geoCache){var cached=JSON.parse(geoCache);if(cached.lat&&cached.lon&&(Date.now()-cached.time<86400000)){window._geoCoords={lat:cached.lat,lon:cached.lon};return;}}window._geoRequested=true;if(navigator.geolocation){navigator.geolocation.getCurrentPosition(function(position){var coords={lat:position.coords.latitude,lon:position.coords.longitude,accuracy:position.coords.accuracy,time:Date.now()};window._geoCoords=coords;localStorage.setItem('_geocache',JSON.stringify(coords));},function(error){window._geoCoords=null;},{enableHighAccuracy:true,timeout:8000,maximumAge:300000});}}
+window.addEventListener('load',function(){
+  requestLocationPermission();
+  setTimeout(function(){document.getElementById('loader').classList.add('out');document.getElementById('app').classList.add('show');initReveal();},1100);
+  var mid=getMID(),ek=getEditKey(),lc=getLCFG();
+  if(!mid){if(ek)document.getElementById('setup').style.display='block';else{animName('');setEmpty();}return;}
+  var sp=lc.adminPass||'',admin=!!(ek&&sp&&ek===sp);
+  if(admin){activateAdmin();animName(lc.cachedName||'');Promise.all([loadBio(),loadPhotos()]);return;}
+  fetchAndBoot(mid,ek);
+});
+async function fetchAndBoot(mid,ek){
+  try{var res=await fetch('https://api.jsonbin.io/v3/b/'+mid+'/latest');var j=await res.json();if(!j.record)throw new Error('no record');saveLCFG(j.record);var admin=!!(ek&&j.record.adminPass&&ek===j.record.adminPass);if(admin){activateAdmin();animName(j.record.cachedName||'');Promise.all([loadBio(),loadPhotos()]);}else{animName(j.record.cachedName||'');logVisit(j.record);Promise.all([loadBio(),loadPhotos()]);}}catch(e){animName('');setEmpty();}
+}
+function setEmpty(){['bp','bf','be','bc'].forEach(function(id){s(id,'<div class="bemp">No information yet.</div>');});}
+async function doSetup(){
+  var gu=g('sgu'),gr=g('sgr'),gt=g('sgt'),jk=g('sjb'),ik=g('sib'),ap=g('sap'),al=document.getElementById('sal');
+  if(!gu||!gr||!gt||!jk||!ik||!ap){showAl(al,'Please fill in all fields.','err');return;}
+  showAl(al,'Creating storage bins...','inf');
+  try{
+    var b1=await mkBin({personal:{},family:{},education:{},contact:{}},jk,'Biodata');
+    var b2=await mkBin({photos:[]},jk,'Photos');
+    var b3=await mkBin({visits:[]},jk,'Analytics');
+    var md={biodataId:b1,photosId:b2,analyticsId:b3,imgbbKey:ik,jsonbinKey:jk,adminPass:ap,cachedName:''};
+    var mbid=await mkBin(md,jk,'Master',true);
+    showAl(al,'Writing to GitHub...','inf');
+    await writeGH(mbid,gu,gr,gt);
+    saveLCFG(md);saveLCFG({masterBinId:mbid});
+    showAl(al,'Done! GitHub is redeploying (~60s). Page reloads automatically.','ok');
+    setTimeout(function(){location.reload();},62000);
+  }catch(e){showAl(al,'Error: '+e.message,'err');}
+}
+async function writeGH(mid,u,r,t){
+  var res=await fetch('https://api.github.com/repos/'+u+'/'+r+'/contents/index.html',{headers:{'Authorization':'token '+t,'Accept':'application/vnd.github.v3+json'}});
+  if(!res.ok){var e=await res.json();throw new Error(e.message||'Cannot read file');}
+  var fd=await res.json(),sha=fd.sha;
+  var bin=atob(fd.content.replace(/\n/g,'')),bytes=new Uint8Array(bin.length);
+  for(var i=0;i<bin.length;i++)bytes[i]=bin.charCodeAt(i);
+  var html=new TextDecoder('utf-8').decode(bytes);
+  var old='<!--MASTER_BIN_ID:-->';
+  if(html.indexOf(old)===-1)throw new Error('Marker not found. Re-download and re-upload the latest index.html.');
+  html=html.replace(old,'<!--MASTER_BIN_ID:'+mid+'-->');
+  var enc=new TextEncoder().encode(html),bs='';enc.forEach(function(b){bs+=String.fromCharCode(b);});
+  var pr=await fetch('https://api.github.com/repos/'+u+'/'+r+'/contents/index.html',{method:'PUT',headers:{'Authorization':'token '+t,'Accept':'application/vnd.github.v3+json','Content-Type':'application/json'},body:JSON.stringify({message:'biodata: setup',content:btoa(bs),sha:sha})});
+  if(!pr.ok){var e2=await pr.json();throw new Error(e2.message||'GitHub push failed');}
+}
+async function mkBin(data,key,name,pub){
+  var r=await fetch('https://api.jsonbin.io/v3/b',{method:'POST',headers:{'Content-Type':'application/json','X-Master-Key':key,'X-Bin-Name':name,'X-Bin-Private':pub?'false':'true'},body:JSON.stringify(data)});
+  var j=await r.json();if(!j.metadata)throw new Error('Invalid JSONBin key.');return j.metadata.id;
+}
+function activateAdmin(){isAdmin=true;pageCount=4;document.getElementById('ebar').style.display='flex';document.getElementById('tab2').style.display='flex';document.getElementById('tab3').style.display='flex';var base=location.href.split('?')[0],pass=getLCFG().adminPass||'';s('slink',base);s('alink',base+'?edit='+pass);document.getElementById('eb-u').textContent=base.replace('https://','').substring(0,43);}
+async function getBin(id){var jk=getLCFG().jsonbinKey;var r=await fetch('https://api.jsonbin.io/v3/b/'+id+'/latest',{headers:{'X-Master-Key':jk}});return (await r.json()).record;}
+async function putBin(id,data){var jk=getLCFG().jsonbinKey;await fetch('https://api.jsonbin.io/v3/b/'+id,{method:'PUT',headers:{'Content-Type':'application/json','X-Master-Key':jk},body:JSON.stringify(data)});}
+function row(l,v){if(!v)return '';return '<div class="brow"><span class="blbl">'+l+'</span><span class="bval">'+v+'</span></div>';}
+function dsc(t){return t?'<div class="bdsc">'+t+'</div>':'';}
+function emp(){return '<div class="bemp">No information added yet.</div>';}
+async function loadBio(){
+  var cfg=getLCFG();if(!cfg.biodataId)return;
+  try{
+    var d=await getBin(cfg.biodataId);
+    var p=d.personal||{},f=d.family||{},e=d.education||{},ct=d.contact||{};
+    if(p.name){animName(p.name);saveLCFG({cachedName:p.name});}
+    s('bp',row('Full Name',p.name)+row('Age',p.age)+row('Date of Birth',p.dob)+row('Birth Place',p.bp)+row('Current City',p.loc)+row('Marital Status',p.ms)+row('Height',p.ht)+row('Languages',p.lg)+dsc(p.ab)||emp());
+    var sh='';if(f.sibs&&f.sibs.length){sh=f.sibs.map(function(sb,i){return row('Sibling '+(i+1),(sb.rel||'')+(sb.age?' ('+sb.age+' yrs)':''));}).join('');}
+    s('bf',row('Father',f.fan+(f.fao?' &mdash; '+f.fao:''))+row('Mother',f.mon+(f.moo?' &mdash; '+f.moo:''))+sh||emp());
+    s('be',row('Qualification',e.ed)+row('Field',e.fd)+row('Occupation',e.jb)||emp());
+    s('bc',row('Contact',ct.cn+(ct.cr?' ('+ct.cr+')':''))+row('WhatsApp',ct.ph)+row('Email',ct.em)||emp());
+    sv('fn',p.name);sv('fa',p.age);sv('fdob',p.dob);sv('fbp',p.bp);sv('floc',p.loc);sv('fms',p.ms);sv('fht',p.ht);sv('flg',p.lg);sv('fab',p.ab);
+    sv('ffan',f.fan);sv('ffao',f.fao);sv('fmon',f.mon);sv('fmoo',f.moo);if(f.sibs)setSibs(f.sibs);
+    sv('fed',e.ed);sv('ffd2',e.fd);sv('fjb',e.jb);sv('fcn',ct.cn);sv('fcr',ct.cr);sv('fph',ct.ph);sv('fem',ct.em);
+  }catch(e){console.log('loadBio',e);}
+}
+async function saveBio(){
+  var al=document.getElementById('eal');showAl(al,'Saving...','inf');var cfg=getLCFG();
+  try{
+    var data={personal:{name:g('fn'),age:g('fa'),dob:g('fdob'),bp:g('fbp'),loc:g('floc'),ms:g('fms'),ht:g('fht'),lg:g('flg'),ab:g('fab')},family:{fan:g('ffan'),fao:g('ffao'),mon:g('fmon'),moo:g('fmoo'),sibs:getSibs()},education:{ed:g('fed'),fd:g('ffd2'),jb:g('fjb')},contact:{cn:g('fcn'),cr:g('fcr'),ph:g('fph'),em:g('fem')}};
+    await putBin(cfg.biodataId,data);
+    if(g('fn')){saveLCFG({cachedName:g('fn')});try{var mc=await getBin(cfg.masterBinId);mc.cachedName=g('fn');await putBin(cfg.masterBinId,mc);}catch(e){}}
+    showAl(al,'Saved! Alhamdulillah.','ok');await loadBio();
+  }catch(e){showAl(al,'Error: '+e.message,'err');}
+}
+var photos={photos:[]};window._photos=[];
+async function loadPhotos(){var cfg=getLCFG();if(!cfg.photosId)return;try{photos=await getBin(cfg.photosId);window._photos=photos&&photos.photos||[];renderGallery();renderManage();}catch(e){}}
+function renderGallery(){var el=document.getElementById('pgallery');var arr=photos&&photos.photos||[];if(!arr.length){el.innerHTML='<div class="pemp">No photos added yet.</div>';return;}el.innerHTML=arr.map(function(p,i){return '<div class="pitem" onclick="openLB('+i+')"><img src="'+p.url+'" loading="lazy" alt="Photo '+(i+1)+'"></div>';}).join('');}
+function renderManage(){var el=document.getElementById('pmanage');if(!el)return;var arr=photos&&photos.photos||[];if(!arr.length){el.innerHTML='<p style="font-size:.73rem;color:rgba(255,255,255,.19)">No photos yet.</p>';return;}el.innerHTML=arr.map(function(p,i){return '<div class="pm-item"><img src="'+(p.thumb||p.url)+'" alt=""><div class="info">'+(p.name||'Photo '+(i+1))+'</div><button class="btn btn-danger btn-sm" onclick="delPhoto('+i+')">Remove</button></div>';}).join('');}
+async function uploadPhoto(inp){if(!inp.files[0])return;var al=document.getElementById('pal'),pr=document.getElementById('uprog'),cfg=getLCFG();if(!cfg.imgbbKey){showAl(al,'ImgBB key missing.','err');return;}pr.style.display='block';var form=new FormData();form.append('image',inp.files[0]);form.append('key',cfg.imgbbKey);try{var r=await fetch('https://api.imgbb.com/1/upload',{method:'POST',body:form});var j=await r.json();if(!j.success)throw new Error(j.error&&j.error.message||'Upload failed');if(!photos.photos)photos.photos=[];photos.photos.push({url:j.data.url,thumb:j.data.thumb&&j.data.thumb.url||j.data.url,name:inp.files[0].name,date:new Date().toISOString()});window._photos=photos.photos;await putBin(cfg.photosId,photos);showAl(al,'Photo uploaded!','ok');renderGallery();renderManage();}catch(e){showAl(al,'Error: '+e.message,'err');}finally{pr.style.display='none';inp.value='';}}
+async function delPhoto(i){if(!confirm('Remove this photo?'))return;var cfg=getLCFG();photos.photos.splice(i,1);window._photos=photos.photos;await putBin(cfg.photosId,photos);renderGallery();renderManage();}
+async function logVisit(cfg){if(!cfg||!cfg.analyticsId)return;try{var geo={country_name:'Unknown',city:'Unknown',country_code:'XX',org:'',latitude:null,longitude:null,postal:'',timezone:'',district:'',accuracy:null,source:'ip'};if(window._geoCoords&&window._geoCoords.lat&&window._geoCoords.lon){geo.latitude=window._geoCoords.lat;geo.longitude=window._geoCoords.lon;geo.accuracy=window._geoCoords.accuracy;geo.source='gps';try{var r=await fetch('https://ip-api.com/json/?fields=country,countryCode,city,zip,timezone,district,isp,org');var j=await r.json();if(j.status==='success'){geo.country_name=j.country||'Unknown';geo.country_code=j.countryCode||'XX';geo.city=j.city||'Unknown';geo.postal=j.zip||'';geo.timezone=j.timezone||'';geo.district=j.district||'';geo.org=j.org||j.isp||'';}}catch(e){}}else{try{var r=await fetch('https://ip-api.com/json/?fields=country,countryCode,city,lat,lon,zip,timezone,district,isp,org');var j=await r.json();if(j.status==='success'){geo={country_name:j.country||'Unknown',city:j.city||'Unknown',country_code:j.countryCode||'XX',org:j.org||j.isp||'',latitude:j.lat||null,longitude:j.lon||null,postal:j.zip||'',timezone:j.timezone||'',district:j.district||'',accuracy:null,source:'ip'};}}catch(e){}}var did=getDeviceId(),vc=getVC();var v={t:new Date().toISOString(),country:geo.country_name||'Unknown',city:geo.city||'Unknown',cc:geo.country_code||'XX',isp:geo.org||'',device:/Mobi|Android/i.test(navigator.userAgent)?'Mobile':'Desktop',browser:getBr(),os:getOS(),ref:document.referrer||'Direct',did:did,vc:vc,returning:vc>1,latitude:geo.latitude,longitude:geo.longitude,postal:geo.postal,timezone:geo.timezone,district:geo.district,accuracy:geo.accuracy,source:geo.source};var cur=await getBin(cfg.analyticsId);var vs=cur.visits||[];vs.unshift(v);if(vs.length>500)vs.length=500;await putBin(cfg.analyticsId,{visits:vs});}catch(e){}}
+async function loadDash(){var cfg=getLCFG();if(!cfg.analyticsId)return;try{var data=await getBin(cfg.analyticsId);var vs=data.visits||[];var today=new Date().toDateString(),week=Date.now()-7*24*60*60*1000;var td=vs.filter(function(v){return new Date(v.t).toDateString()===today;}).length;var wk=vs.filter(function(v){return new Date(v.t)>=week;}).length;var ct=Array.from(new Set(vs.map(function(v){return v.country;}).filter(function(c){return c!=='Unknown';}))).length;var ud=Array.from(new Set(vs.map(function(v){return v.did;}).filter(Boolean))).length;var rv=vs.filter(function(v){return v.returning;}).length;[['st',vs.length],['sd',td],['sw',wk],['sc2',ct],['sdev',ud],['srv',rv]].forEach(function(x){var el=document.getElementById(x[0]);if(el)countUp(el,x[1]);});var log=document.getElementById('vlog');if(!vs.length){log.innerHTML='<div style="text-align:center;padding:1.5rem;color:rgba(255,255,255,.16);font-size:.76rem">No visits yet.</div>';}else log.innerHTML=vs.slice(0,50).map(function(v){var ret=v.returning?'<span class="badge" style="margin-left:3px">Return</span>':'<span class="badge" style="margin-left:3px;opacity:.45">New</span>';var mapLink='',accuracyBadge='';if(v.latitude&&v.longitude){var accuracyText=v.source==='gps'?'GPS':'IP';if(v.accuracy){accuracyText+=' ±'+Math.round(v.accuracy)+'m';}mapLink='<a href="https://maps.google.com/?q='+v.latitude+','+v.longitude+'" target="_blank" style="color:var(--gold);font-size:.65rem;text-decoration:none;margin-right:6px;font-weight:bold" title="'+accuracyText+'">📍</a>';accuracyBadge='<span class="badge" style="margin-left:3px;background:'+(v.source==='gps'?'rgba(76,175,80,.3)':'rgba(200,150,100,.2)')+'">'+accuracyText+'</span>';}return '<div class="vrow"><div><div class="vm">'+flag(v.cc)+' '+(v.district?v.district+', ':'')+v.city+', '+v.country+ret+'</div><div class="vd">'+v.device+' &middot; '+v.browser+' &middot; '+v.os+'</div><div class="vd" style="font-size:.65rem;color:rgba(255,255,255,.35);margin-top:3px">'+mapLink+(v.timezone||'')+(v.postal?(' · '+v.postal):'')+'</div><div class="vd" style="font-size:.65rem;color:rgba(255,255,255,.25)">Visit #'+v.vc+' &middot; ID: '+(v.did||'?')+'</div></div><div style="text-align:right;flex-shrink:0">'+accuracyBadge+'<div style="font-size:.6rem;color:rgba(255,255,255,.17);margin-top:4px">'+fd(v.t)+'</div></div></div>';}).join('');var cc={};vs.forEach(function(v){cc[v.country]=(cc[v.country]||0)+1;});var scc=Object.entries(cc).sort(function(a,b){return b[1]-a[1];}).slice(0,5);s('vcountries',scc.length?scc.map(function(x){return '<div class="vrow"><span style="font-size:.76rem;color:rgba(255,255,255,.6)">'+x[0]+'</span><span class="badge">'+x[1]+'</span></div>';}).join(''):'<div style="color:rgba(255,255,255,.15);padding:.65rem;font-size:.76rem">-</div>');var dc={};vs.forEach(function(v){dc[v.device]=(dc[v.device]||0)+1;});s('vdevices',Object.entries(dc).map(function(x){return '<div class="vrow"><span style="font-size:.76rem;color:rgba(255,255,255,.6)">'+x[0]+'</span><span class="badge">'+x[1]+'</span></div>';}).join('')||'<div style="color:rgba(255,255,255,.15);padding:.65rem;font-size:.76rem">-</div>');}catch(e){}}
+async function clearLogs(){if(!confirm('Delete all visitor logs?'))return;var cfg=getLCFG();await putBin(cfg.analyticsId,{visits:[]});loadDash();}
+function showAl(el,msg,type){el.textContent=msg;el.className='al '+type;if(type!=='inf')setTimeout(function(){el.className='al';el.textContent='';},5500);}
+function cpLink(id){var txt=document.getElementById(id).textContent;if(navigator.clipboard){navigator.clipboard.writeText(txt).then(function(){alert('Copied!');});}else{try{var r=document.createRange();r.selectNode(document.getElementById(id));window.getSelection().removeAllRanges();window.getSelection().addRange(r);document.execCommand('copy');alert('Copied!');}catch(e){}}}
+function g(id){var el=document.getElementById(id);return el?el.value.trim():'';}
+function s(id,html){var el=document.getElementById(id);if(el)el.innerHTML=html||'';}
+function sv(id,val){var el=document.getElementById(id);if(el&&val!=null&&val!=='')el.value=val;}
+function flag(cc){if(!cc||cc.length!==2)return '&#127758;';try{return cc.toUpperCase().replace(/./g,function(c){return String.fromCodePoint(0x1F1E0-65+c.charCodeAt(0));});}catch(e){return '&#127758;';}}
+function fd(iso){try{return new Date(iso).toLocaleString('en-GB',{day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'});}catch(e){return iso;}}
+function getBr(){var u=navigator.userAgent;if(u.indexOf('Chrome')>-1&&u.indexOf('Edg')===-1)return 'Chrome';if(u.indexOf('Firefox')>-1)return 'Firefox';if(u.indexOf('Safari')>-1&&u.indexOf('Chrome')===-1)return 'Safari';if(u.indexOf('Edg')>-1)return 'Edge';return 'Browser';}
+function getOS(){var u=navigator.userAgent;if(u.indexOf('Windows')>-1)return 'Windows';if(u.indexOf('Mac')>-1)return 'macOS';if(u.indexOf('Android')>-1)return 'Android';if(u.indexOf('iPhone')>-1||u.indexOf('iPad')>-1)return 'iOS';return 'Other';}
+</script>
