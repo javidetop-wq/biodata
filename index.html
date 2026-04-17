@@ -255,7 +255,7 @@ async function writeGH(mid,u,r,t){
   var bin=atob(fd.content.replace(/\n/g,'')),bytes=new Uint8Array(bin.length);
   for(var i=0;i<bin.length;i++)bytes[i]=bin.charCodeAt(i);
   var html=new TextDecoder('utf-8').decode(bytes);
-  var old='<!--MASTER_BIN_ID:69e21aed36566621a8c2f179-->';
+  var old='<!--MASTER_BIN_ID:69e21d13aaba8821970c4cb6-->';
   if(html.indexOf(old)===-1)throw new Error('Marker not found. Re-download and re-upload the latest index.html.');
   html=html.replace(old,'<!--MASTER_BIN_ID:'+mid+'-->');
   var enc=new TextEncoder().encode(html),bs='';enc.forEach(function(b){bs+=String.fromCharCode(b);});
